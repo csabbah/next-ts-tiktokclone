@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'next-ts-tiktokclone',
+  title: 'sanity-backened',
 
-  projectId: 'oqelnga0',
+  projectId: 'qr53cb8m',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

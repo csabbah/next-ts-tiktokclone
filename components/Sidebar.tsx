@@ -10,7 +10,7 @@ import SuggestedAccounts from "./SuggestedAccounts";
 import Footer from "./Footer";
 
 const Sidebar = () => {
-  const [showSideBar, setShowSideBar] = useState<boolean>(true);
+  const [showSidebar, setShowSidebar] = useState<boolean>(true);
 
   const userProfile = false;
 
@@ -21,11 +21,11 @@ const Sidebar = () => {
     <div>
       <div
         className="block xl:hidden m-2 ml-4 mt-3 text-xl"
-        onClick={() => setShowSideBar((prev) => !prev)}
+        onClick={() => setShowSidebar(!showSidebar)}
       >
-        {showSideBar ? <ImCancelCircle /> : <AiOutlineMenu />}
+        {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
       </div>
-      {showSideBar && (
+      {showSidebar && (
         <div className="xl:w-400 w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3">
           <div className="xl:border-b-2 border-gray-200 xl:pb-4">
             <Link href="/">

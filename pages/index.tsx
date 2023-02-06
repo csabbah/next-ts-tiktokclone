@@ -2,14 +2,24 @@ import { type NextPage } from "next";
 
 import axios from "axios";
 
+import VideoCard from "@/components/VideoCard";
+import NoResults from "@/components/NoResults";
+
 import { Video } from "../types";
 interface IProps {
   videos: Video[];
 }
 
 const Home = ({ videos }: IProps) => {
-  console.log(videos);
-  return <div className="text-3xl font-bold underline">TikTok</div>;
+  return (
+    <div className="flex flex-col gap-10 videos h-full">
+      {videos.length ? (
+        videos.map((video: Video) => <VideoCard post={video} key={video._id} />)
+      ) : (
+        <NoResults text={"No Result"} />
+      )}
+    </div>
+  );
 };
 
 export const getServerSideProps = async () => {

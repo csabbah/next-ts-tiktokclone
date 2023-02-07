@@ -15,5 +15,6 @@ export default async function handler(
 
     return res.status(200).json(data);
   }
+
   res.status(400).json({ status: "Something went wrong" });
 }

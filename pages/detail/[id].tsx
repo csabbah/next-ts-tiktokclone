@@ -10,13 +10,15 @@ import axios from "axios";
 import { BASE_URL } from "../../utils";
 import { Video } from "../../types";
 import useAuthStore from "@/store/authStore";
+import LikeButton from "@/components/LikeButton";
+import Comments from "@/components/Comments";
 
 interface IProps {
   postDetails: Video;
 }
 
 const Detail = ({ postDetails }: IProps) => {
-  const { userProfile } = useAuthStore();
+  const { userProfile }: any = useAuthStore();
 
   const [post, setPost] = useState(postDetails);
   const [playing, setPlaying] = useState<boolean>(false);
@@ -46,6 +48,16 @@ const Detail = ({ postDetails }: IProps) => {
 
   if (!post) return null;
 
+  const handleLike = async (like: boolean) => {
+    if (userProfile) {
+      const { data } = await axios.put(`${BASE_URL}/api/like`, {
+        userId: userProfile._id,
+        postId: post._id,
+        like,
+      });
+      setPost({ ...post, likes: data.likes });
+    }
+  };
   return (
     <div className="flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap">
       <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-black">
@@ -114,7 +126,16 @@ const Detail = ({ postDetails }: IProps) => {
             </div>
           </div>
           <p className="px-10 text-lg text-gray-600">{post.caption}</p>
-          <div className="mt-10 px-10"></div>
+          <div className="mt-10 px-10">
+            {userProfile && (
+              <LikeButton
+                handleLike={() => handleLike(true)}
+                handleDislike={() => handleLike(false)}
+                likes={post.likes}
+              />
+            )}
+          </div>
+          <Comments />
         </div>
       </div>
     </div>

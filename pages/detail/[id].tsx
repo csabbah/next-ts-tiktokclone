@@ -18,6 +18,9 @@ interface IProps {
 }
 
 const Detail = ({ postDetails }: IProps) => {
+  const [comment, setComment] = useState("");
+  const [isPostingComment, setIsPostingComment] = useState(false);
+
   const { userProfile }: any = useAuthStore();
 
   const [post, setPost] = useState(postDetails);
@@ -56,6 +59,21 @@ const Detail = ({ postDetails }: IProps) => {
         like,
       });
       setPost({ ...post, likes: data.likes });
+    }
+  };
+
+  const addComment = async (e) => {
+    e.preventDefault();
+    if (userProfile && comment) {
+      setIsPostingComment(true);
+
+      const { data } = await axios.put(`${BASE_URL}/api/post/${post._id}`, {
+        userId: userProfile._id,
+        comment,
+      });
+      setPost({ ...post, comments: data.comments });
+      setComment("");
+      setIsPostingComment(false);
     }
   };
   return (
@@ -135,7 +153,13 @@ const Detail = ({ postDetails }: IProps) => {
               />
             )}
           </div>
-          <Comments />
+          <Comments
+            comment={comment}
+            setComment={setComment}
+            addComment={addComment}
+            comments={post.comments}
+            isPostingComment={isPostingComment}
+          />
         </div>
       </div>
     </div>

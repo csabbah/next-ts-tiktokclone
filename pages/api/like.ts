@@ -17,7 +17,7 @@ export default async function handler(
           .setIfMissing({ likes: [] })
           // 'after' - At the end, after a string of 'likes[-1]' (The END of the array)
           // We want to pass a unique key, and a ref so we know WHO liked the post
-          .insert("after", "likes[-1]", [{ _key: uuid, _ref: userId }])
+          .insert("after", "likes[-1]", [{ _key: uuid(), _ref: userId }])
           // SAVE it
           .commit()
       : await client

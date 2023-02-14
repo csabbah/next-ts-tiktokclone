@@ -58,7 +58,7 @@ const VideoCard: NextPage<IProps> = ({ post }) => {
           </div>
           <div>
             <Link href={`/profile/${post.postedBy._id}`}>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col items-start">
                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                   {post.postedBy.userName}{" "}
                   <GoVerified className="text-blue-400 text-md" />

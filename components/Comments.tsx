@@ -37,7 +37,7 @@ const Comments = ({
         {comments?.length ? (
           comments.map((item, i) => {
             return (
-              <>
+              <div key={i}>
                 {allUsers.map((user: IUser) => {
                   return (
                     (user._id === item.postedBy._id || item.postedBy._ref) && (
@@ -73,7 +73,7 @@ const Comments = ({
                     )
                   );
                 })}
-              </>
+              </div>
             );
           })
         ) : (

@@ -1,5 +1,5 @@
 // This is essentially a custom hook we created that can be accessible anywhere in the project
-import create from "zustand";
+import { create } from "zustand";
 
 // State remains the same even after reload
 import { persist } from "zustand/middleware";

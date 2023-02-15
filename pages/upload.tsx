@@ -96,7 +96,12 @@ const Upload = () => {
               Post a video to your account
             </p>
           </div>
-          <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
+          <div
+            className={`${
+              !videoAsset &&
+              "border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-blue-300 hover:bg-gray-100"
+            }`}
+          >
             {loading ? (
               <p className="text-center text-3xl text-red-400 font-semibold">
                 Uploading...
@@ -115,13 +120,13 @@ const Upload = () => {
                         </p>
                       </div>
 
-                      <p className="text-gray-400 text-center mt-10 text-sm leading-10">
+                      <p className="text-gray-400 text-center mt-4 text-sm leading-10">
                         MP4 or WebM or ogg <br />
                         720x1280 resolution or higher <br />
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
-                      <p className="bg-[#F51997] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="bg-[#F51997] text-center mt-4 rounded text-white text-md font-medium p-2 w-52 outline-none">
                         Select file
                       </p>
                     </div>

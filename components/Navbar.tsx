@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, forwardRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { AiOutlineLogout } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
-import Logo from "../utils/tiktik-logo.png";
-
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { createOrGetUser } from "../utils";
 
@@ -14,7 +11,11 @@ import useAuthStore from "../store/authStore";
 import { BiSearch } from "react-icons/bi";
 
 const Navbar = () => {
-  const { userProfile, addUser, removeUser } = useAuthStore();
+  const {
+    userProfile,
+    addUser,
+    removeUser,
+  }: { userProfile: any; addUser: any; removeUser: any } = useAuthStore();
 
   const [searchValue, setSearchValue] = useState<string>("");
 
@@ -30,14 +31,7 @@ const Navbar = () => {
   return (
     <div className=" w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4">
       <Link href="/">
-        <div className="w-[100px] md:w-[130px]">
-          <Image
-            className="cursor-pointer"
-            alt="TikTik"
-            src={Logo}
-            layout="responsive"
-          />
-        </div>
+        <div className="w-[100px] md:w-[130px]">TikTok Clone</div>
       </Link>
       <div className="relative hidden md:block">
         <form
@@ -65,14 +59,14 @@ const Navbar = () => {
         {userProfile ? (
           <div className="flex gap-5 md:gap-10">
             <Link href="/upload">
-              <button className="border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2">
+              <button className="border-2 px-2 md:px-4 text-md font-semibold flex items-center rounded-md">
                 <IoMdAdd className="text-xl" /> {` `}
                 <span className="hidden md:block">Upload</span>
               </button>
             </Link>
             {userProfile.image && (
-              <>
-                <Link href="/">
+              <Link href={"/"}>
+                <>
                   <Image
                     src={userProfile.image}
                     className="rounded-full cursor-pointer"
@@ -80,8 +74,8 @@ const Navbar = () => {
                     height={40}
                     alt="Profile Photo"
                   />
-                </Link>
-              </>
+                </>
+              </Link>
             )}
             <button
               className="px-2"

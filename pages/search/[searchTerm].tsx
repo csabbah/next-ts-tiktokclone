@@ -72,11 +72,11 @@ const Search = ({ videos }: { videos: Video[] }) => {
               </Link>
             ))
           ) : (
-            <NoResults text={`No Video results for ${searchTerm}`} />
+            <NoResults text={`No Account results for ${searchTerm}`} />
           )}
         </div>
       ) : (
-        <div className="md:mt-16 flex flex-wrap gap-6 md:justify-start">
+        <div className="flex flex-wrap gap-6 md:justify-start">
           {videos.length > 0 ? (
             videos.map((video: Video, index: number) => (
               <VideoCard post={video} key={index} />

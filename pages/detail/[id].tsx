@@ -62,7 +62,7 @@ const Detail = ({ postDetails }: IProps) => {
     }
   };
 
-  const addComment = async (e) => {
+  const addComment = async (e: any) => {
     e.preventDefault();
     if (userProfile && comment) {
       setIsPostingComment(true);
@@ -119,14 +119,17 @@ const Detail = ({ postDetails }: IProps) => {
           <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
             <div className="ml-4 md:w-20 md:h-20 w-16 h-16">
               <Link href={`/profile/${post.postedBy._id}`}>
-                <Image
-                  src={post.postedBy.image}
-                  className="rounded-full"
-                  width={62}
-                  height={62}
-                  alt="Profile Photo"
-                  layout="responsive"
-                />
+                <>
+                  <Image
+                    src={post.postedBy.image}
+                    className="rounded-full"
+                    width={62}
+                    height={62}
+                    alt="Profile Photo"
+                    layout="responsive"
+                    priority={true}
+                  />
+                </>
               </Link>
             </div>
             <div>
@@ -144,7 +147,7 @@ const Detail = ({ postDetails }: IProps) => {
             </div>
           </div>
           <p className="px-10 text-lg text-gray-600">{post.caption}</p>
-          <div className="mt-10 px-10">
+          <div className="mt-3 pt-2 px-[30px]">
             {userProfile && (
               <LikeButton
                 handleLike={() => handleLike(true)}

@@ -29,15 +29,15 @@ const Search = ({ videos }: { videos: Video[] }) => {
 
   return (
     <div className="w-full">
-      <div className="flex gap-10 mb-4 mt-10 border-b-2 border-gray-200 bg-white w-full">
+      <div className="flex gap-4 md:gap-6 mb-4 md:mb-6 mt-10 md:border-b-2 border-gray-200 bg-white w-full">
         <p
-          className={`text-xl font-semibold cursor-pointer mt-2 ${accounts}`}
+          className={`text-[16px] md:text-xl font-semibold cursor-pointer mt-2 ${accounts}`}
           onClick={() => setIsAccounts(true)}
         >
           Accounts
         </p>
         <p
-          className={`text-xl font-semibold cursor-pointer mt-2 ${isVideos}`}
+          className={`text-[16px] md:text-xl font-semibold cursor-pointer mt-2 ${isVideos}`}
           onClick={() => setIsAccounts(false)}
         >
           Videos
@@ -48,7 +48,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: IUser, index: number) => (
               <Link key={index} href={`/profile/${user._id}`}>
-                <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
+                <div className="flex gap-3 pb-2 cursor-pointer font-semibold rounded">
                   <div>
                     <Image
                       src={user.image}

@@ -32,8 +32,8 @@ const Comments = ({
   const { allUsers, userProfile }: any = useAuthStore();
 
   return (
-    <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
-      <div className="overflow-scroll lg:h-[457px]">
+    <div className="border-t-2 border-gray-200 px-10 mt-4 bg-[#F8F8F8]  md:pn-4 lg:pb-0 pb-[10px] md:w-[100vw] lg:w-[100%]">
+      <div className="overflow-scroll md:h-[350px] md:pb-0 lg:h-[470px] lg:pb-2">
         {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
             <div key={idx}>
@@ -55,7 +55,7 @@ const Comments = ({
                             />
                           </div>
 
-                          <p className="flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary">
+                          <p className="flex cursor-pointer gap-1 items-center text-[15px] md:text-[18px]  font-bold leading-6 text-primary">
                             {user.userName}{" "}
                             <GoVerified className="text-blue-400" />
                           </p>
@@ -76,15 +76,21 @@ const Comments = ({
         )}
       </div>
       {userProfile && (
-        <div className="absolute bottom-0 left-0  pb-6 px-2 md:px-10 ">
-          <form onSubmit={addComment} className="flex gap-4">
+        <div className="pb-4">
+          <form
+            onSubmit={addComment}
+            className="flex gap-2 w-[100%] md:w-full px-3"
+          >
             <input
               value={comment}
               onChange={(e) => setComment(e.target.value.trim())}
-              className="bg-primary px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
+              className="bg-primary px-6 py-4 text-md font-medium border-2 w-[250px] md:w-[500px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
               placeholder="Add comment.."
             />
-            <button className="text-md text-gray-400 " onClick={addComment}>
+            <button
+              className="hidden sm:block text-md text-gray-400 "
+              onClick={addComment}
+            >
               {isPostingComment ? "Commenting..." : "Comment"}
             </button>
           </form>

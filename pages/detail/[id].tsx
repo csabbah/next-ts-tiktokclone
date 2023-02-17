@@ -116,7 +116,7 @@ const Detail = ({ postDetails }: IProps) => {
       </div>
       <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
         <div className="lg:mt-20 mt-10">
-          <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
+          <div className="flex gap-3 pb-2 cursor-pointer font-semibold rounded">
             <div className="ml-4 md:w-20 md:h-20 w-16 h-16">
               <Link href={`/profile/${post.postedBy._id}`}>
                 <>
@@ -139,15 +139,15 @@ const Detail = ({ postDetails }: IProps) => {
                     {post.postedBy.userName}{" "}
                     <GoVerified className="text-blue-400 text-md" />
                   </p>
-                  <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
+                  <p className="capitalize font-medium text-xs text-gray-500">
                     {post.postedBy.userName}
                   </p>
                 </div>
               </Link>
             </div>
           </div>
-          <p className="px-10 text-lg text-gray-600">{post.caption}</p>
-          <div className="mt-3 pt-2 px-[30px]">
+          <p className="pl-8 text-lg text-gray-600">{post.caption}</p>
+          <div className="mt-3 px-[30px]">
             {userProfile && (
               <LikeButton
                 handleLike={() => handleLike(true)}

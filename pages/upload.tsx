@@ -87,7 +87,7 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex w-full h-full absolute left-0 top-[60px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
+    <div className="flex w-full h-full absolute left-0 top-[70px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
       <div className=" bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
         <div>
           <div>
@@ -99,11 +99,11 @@ const Upload = () => {
           <div
             className={`${
               !videoAsset &&
-              "border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-blue-300 hover:bg-gray-100"
+              "border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-3 w-[260px] h-[400px] p-10 cursor-pointer hover:border-blue-300 hover:bg-gray-100"
             }`}
           >
             {loading ? (
-              <p className="text-center text-3xl text-red-400 font-semibold">
+              <p className="text-center text-3xl text-blue-400 font-semibold">
                 Uploading...
               </p>
             ) : (
@@ -120,13 +120,13 @@ const Upload = () => {
                         </p>
                       </div>
 
-                      <p className="text-gray-400 text-center mt-4 text-sm leading-10">
+                      <p className="text-gray-400 text-center text-sm leading-10">
                         MP4 or WebM or ogg <br />
                         720x1280 resolution or higher <br />
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
-                      <p className="bg-[#F51997] text-center mt-4 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="bg-[#F51997] text-center rounded text-white text-md font-medium p-2 w-52 outline-none">
                         Select file
                       </p>
                     </div>
@@ -138,18 +138,20 @@ const Upload = () => {
                     />
                   </label>
                 ) : (
-                  <div className=" rounded-3xl w-[300px]  p-4 flex flex-col gap-6 justify-center items-center">
+                  <div className=" rounded-3xl w-[260px] mt-[10px] flex flex-col gap-6 justify-center items-center">
                     <video
-                      className="rounded-xl h-[462px] mt-16 bg-black"
+                      className="rounded-xl h-[400px] bg-black"
                       controls
                       loop
                       src={videoAsset?.url}
                     />
-                    <div className=" flex justify-between gap-20">
-                      <p className="text-lg">{videoAsset.originalFilename}</p>
+                    <div className="flex justify-between gap-10">
+                      <p className="text-[17px] md:text-lg">
+                        {videoAsset.originalFilename}
+                      </p>
                       <button
                         type="button"
-                        className=" rounded-full bg-gray-200 text-red-400 p-2 text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
+                        className="px-4 rounded-[20px] bg-gray-200 text-red-400 p-2 text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
                         onClick={() => setVideoAsset(undefined)}
                       >
                         <MdDelete />
@@ -161,13 +163,13 @@ const Upload = () => {
             )}
           </div>
           {wrongFileType && (
-            <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[260px]">
+            <p className="text-center text-xl text-red-400 font-semibold w-[260px]">
               Please select an video file (mp4 or webm or ogg)
             </p>
           )}
         </div>
         <div className="flex flex-col gap-3 pb-10">
-          <label className="text-md font-medium ">Caption</label>
+          <label className="text-md font-medium">Caption</label>
           <input
             type="text"
             value={caption}
@@ -175,12 +177,11 @@ const Upload = () => {
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
           <label className="text-md font-medium ">Choose a topic</label>
-
           <select
             onChange={(e) => {
               setTopic(e.target.value);
             }}
-            className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
+            className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize p-2 rounded cursor-pointer"
           >
             {topics.map((item) => (
               <option
@@ -192,7 +193,7 @@ const Upload = () => {
               </option>
             ))}
           </select>
-          <div className="flex gap-6 mt-10">
+          <div className="flex gap-4 mt-4">
             <button
               onClick={handleDiscard}
               type="button"

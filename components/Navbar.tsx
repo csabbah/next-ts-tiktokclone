@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -28,6 +28,24 @@ const Navbar = () => {
       router.push(`/search/${searchValue}`);
     }
   };
+
+  const [googleBtnType, setGoogleBtnType] = useState<"standard" | "icon">(
+    window.outerWidth < 450 ? "icon" : "standard"
+  );
+
+  const checkSize = () => {
+    if (window.outerWidth <= 450) {
+      setGoogleBtnType("icon");
+    } else {
+      setGoogleBtnType("standard");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
   return (
     <div className="w-full flex justify-between items-center border-b-2 border-gray-200 py-2 px-4">
       <Link href="/">
@@ -43,8 +61,8 @@ const Navbar = () => {
             onChange={(e) => {
               setSearchValue(e.target.value);
             }}
-            placeholder="Search accounts & videos"
-            className="bg-primary py-2 pl-2 md:p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 max-w-lg md:w-[350px] rounded-full md:top-0"
+            placeholder="Search accounts/videos"
+            className="bg-primary py-2 pl-2 md:p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[230px] md:w-[350px] rounded-full md:top-0"
           />
           <button
             onClick={handleSearch}
@@ -83,11 +101,13 @@ const Navbar = () => {
                 removeUser();
               }}
             >
-              <AiOutlineLogout color="red" fontSize={21} />
+              <AiOutlineLogout color="red" fontSize={28} />
             </button>
           </div>
         ) : (
           <GoogleLogin
+            width="100"
+            type={googleBtnType}
             //createOrGetUser is just a fetch function in our utils that executes a jwt-decode function
             onSuccess={(res) => createOrGetUser(res, addUser)}
             onError={() => console.log("Error")}

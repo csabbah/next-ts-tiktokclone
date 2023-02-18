@@ -140,7 +140,6 @@ const Upload = () => {
                 ) : (
                   <div className="rounded-3xl w-[260px] mt-[10px] flex flex-col gap-6 justify-center items-center">
                     <video
-                      playsInline
                       className="rounded-xl h-[400px] bg-black"
                       controls
                       loop

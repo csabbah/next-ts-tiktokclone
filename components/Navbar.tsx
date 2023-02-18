@@ -62,7 +62,7 @@ const Navbar = () => {
               setSearchValue(e.target.value);
             }}
             placeholder="Search accounts/videos"
-            className="bg-primary py-2 pl-2 md:p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[230px] md:w-[350px] rounded-full md:top-0"
+            className="bg-primary py-2 pl-2 md:p-3 md:text-md font-medium border-2 border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 w-[200px] md:w-[350px] rounded-full md:top-0"
           />
           <button
             onClick={handleSearch}

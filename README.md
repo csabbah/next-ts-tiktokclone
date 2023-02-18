@@ -34,7 +34,7 @@ npm install --force
 To view the application in your local browser, cd into the root directory path and run this in terminal:
 
 ```
-npm run develop
+npm run dev
 ```
 
 ## Links

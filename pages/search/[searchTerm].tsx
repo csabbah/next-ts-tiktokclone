@@ -48,7 +48,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
           {searchedAccounts.length > 0 ? (
             searchedAccounts.map((user: IUser, index: number) => (
               <Link key={index} href={`/profile/${user._id}`}>
-                <div className="flex gap-3 pb-2 cursor-pointer font-semibold rounded">
+                <div className="flex gap-2 pb-2 cursor-pointer font-semibold rounded">
                   <div>
                     <Image
                       src={user.image}

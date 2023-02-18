@@ -118,7 +118,7 @@ const Detail = ({ postDetails }: IProps) => {
       </div>
       <div className="relative w-[1000px] md:w-[900px] lg:w-[700px]">
         <div className="lg:mt-20 mt-10">
-          <div className="flex gap-3 pb-2 cursor-pointer font-semibold rounded">
+          <div className="flex gap-2 pb-2 cursor-pointer font-semibold rounded">
             <div className="ml-4 md:w-20 md:h-20 w-16 h-16">
               <Link href={`/profile/${post.postedBy._id}`}>
                 <>
@@ -136,7 +136,7 @@ const Detail = ({ postDetails }: IProps) => {
             </div>
             <div>
               <Link href={`/profile/${post.postedBy._id}`}>
-                <div className="mt-3 flex flex-col gap-2">
+                <div className="mt-2 flex flex-col">
                   <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                     {post.postedBy.userName}{" "}
                     <GoVerified className="text-blue-400 text-md" />

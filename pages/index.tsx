@@ -12,7 +12,7 @@ interface IProps {
 const Home = ({ videos }: IProps) => {
   return (
     <div className="flex flex-col gap-2 sm:gap-10 videos h-full">
-      {videos.length ? (
+      {videos.length > 0 ? (
         videos.map((video: Video) => <VideoCard post={video} key={video._id} />)
       ) : (
         <NoResults text={"No Result"} />

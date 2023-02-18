@@ -36,7 +36,7 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex gap-3 mb-4 bg-white">
+      <div className="flex gap-2 bg-white">
         <div className="w-16 h-16 md:w-20 md:w-20">
           <Image
             src={user.image}
@@ -59,7 +59,7 @@ const Profile = ({ data }: IProps) => {
         </div>
       </div>
       <div>
-        <div className="flex gap-4 md:gap-6 mb-4 md:mb-6 mt-10 md:border-b-2 border-gray-200 bg-white w-full">
+        <div className="flex gap-4 md:gap-6 mb-4 md:mb-6 mt-3 md:mt-10 md:border-b-2 border-gray-200 bg-white w-full">
           <p
             className={`text-[16px] md:text-xl font-semibold cursor-pointer mt-2 ${videos}`}
             onClick={() => setShowVideos(true)}

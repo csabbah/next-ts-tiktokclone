@@ -10,6 +10,7 @@ import { BASE_URL } from "../utils";
 import { client } from "../utils/client";
 import { topics } from "../utils/constants";
 
+import { BiArrowBack } from "react-icons/bi";
 const Upload = () => {
   const [caption, setCaption] = useState("");
   const [topic, setTopic] = useState<String>(topics[0].name);
@@ -87,10 +88,14 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex w-full h-full absolute left-0 top-[70px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-[#F8F8F8] justify-center">
-      <div className=" bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
+    <div className="flex w-full h-full absolute left-0 top-[70px] lg:top-[70px] mb-10 pt-10 lg:pt-20 bg-white md:bg-[#F8F8F8] justify-center">
+      <div className="bg-white rounded-lg xl:h-[80vh] flex gap-6 flex-wrap justify-center items-center p-14 pt-6">
         <div>
           <div>
+            <BiArrowBack
+              onClick={() => router.push("/")}
+              className="block md:hidden text-2xl mb-4"
+            />
             <p className="text-2xl font-bold">Upload Video</p>
             <p className="text-md text-gray-400 mt-1">
               Post a video to your account
@@ -169,20 +174,20 @@ const Upload = () => {
             </p>
           )}
         </div>
-        <div className="flex flex-col gap-3 pb-10">
+        <div className="flex flex-col pb-10">
           <label className="text-md font-medium">Caption</label>
           <input
             type="text"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
-            className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
+            className="rounded mb-4 lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
           <label className="text-md font-medium ">Choose a topic</label>
           <select
             onChange={(e) => {
               setTopic(e.target.value);
             }}
-            className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize p-2 rounded cursor-pointer"
+            className="outline-none lg:w-650 mb-4 border-2 border-gray-200 text-md capitalize p-2 rounded cursor-pointer"
           >
             {topics.map((item) => (
               <option
@@ -194,7 +199,7 @@ const Upload = () => {
               </option>
             ))}
           </select>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-2">
             <button
               onClick={handleDiscard}
               type="button"

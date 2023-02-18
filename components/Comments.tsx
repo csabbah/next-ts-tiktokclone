@@ -33,7 +33,7 @@ const Comments = ({
 
   return (
     <div className="border-t-2 border-gray-200 px-10 mt-4 bg-[#F8F8F8]  md:pn-4 lg:pb-0 pb-[10px] md:w-[100vw] lg:w-[100%]">
-      <div className="overflow-scroll md:h-[350px] md:pb-0 lg:h-[470px] lg:pb-2">
+      <div className="overflow-scroll h-[300px] md:h-[350px] md:pb-0 lg:h-[470px] lg:pb-2">
         {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
             <div key={idx}>
@@ -75,7 +75,7 @@ const Comments = ({
           <NoResults text="No Comments Yet! Be First to do add the comment." />
         )}
       </div>
-      {userProfile && (
+      {userProfile ? (
         <div className="pb-4">
           <form
             onSubmit={addComment}
@@ -94,6 +94,10 @@ const Comments = ({
               {isPostingComment ? "Commenting..." : "Comment"}
             </button>
           </form>
+        </div>
+      ) : (
+        <div className="pb-4">
+          <p>Login to comment</p>
         </div>
       )}
     </div>

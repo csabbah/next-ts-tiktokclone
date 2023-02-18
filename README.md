@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# next-ts-tiktokclone - February 18th 2023 - Carlos Sabbah
 
-## Getting Started
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- [Description](#Description)
+- [Installation](#Installation)
+- [Local Usage](#Local-Usage)
+- [Links](#Links)
+- [Questions](#Questions)
+- [License](#License)
+
+##
+
+## Description
+
+## Installation
+
+1. To install application, clone the main project via the HTTP or SSH link on github.
+
+```
+git clone
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Once cloned, open the project folder in your text editor, cd in to the root path and run the following command in terminal to install all dependencies.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install --force
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Local-Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To view the application in your local browser, cd into the root directory path and run this in terminal:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+npm run develop
+```
 
-## Learn More
+## Links
 
-To learn more about Next.js, take a look at the following resources:
+[Link to live application](https://project-tiktik.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- React.js
+- Next.js
+- Google Auth
+- Sanity
+- Axios
+- JWT-decode
+- Zustand
+- React-icons
+- Vercel
+- Node.js
+- Typescript / TSX
+- JavaScript / JSX
+- HTML
+- CSS
 
-## Deploy on Vercel
+## Questions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[My portfolio](https://csabbah.github.io/Carlos-Sabbah-portfolio/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To view my other repositories:
+[Github](https://github.com/csabbah)
+
+If you have questions about this application or general inquiry, please reach out to me via email: carlossabbah@hotmail.com
+
+## License
+
+This project is covered under the MIT License

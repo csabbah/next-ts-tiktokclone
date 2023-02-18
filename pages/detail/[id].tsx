@@ -12,6 +12,7 @@ import { Video } from "../../types";
 import useAuthStore from "@/store/authStore";
 import LikeButton from "@/components/LikeButton";
 import Comments from "@/components/Comments";
+import { MdFavorite } from "react-icons/md";
 
 interface IProps {
   postDetails: Video;
@@ -87,10 +88,11 @@ const Detail = ({ postDetails }: IProps) => {
         <div className="relative">
           <div className="lg:h-[100vh] h-[60vh]">
             <video
+              playsInline
               ref={videoRef}
               loop
               onClick={onVideoCLick}
-              src={post.video.asset.url}
+              src={`${post.video.asset.url}#t=3`}
               className="h-full cursor-pointer"
             ></video>
           </div>
@@ -148,12 +150,20 @@ const Detail = ({ postDetails }: IProps) => {
           </div>
           <p className="pl-8 text-lg text-gray-600">{post.caption}</p>
           <div className="mt-3 px-[30px]">
-            {userProfile && (
+            {userProfile ? (
               <LikeButton
                 handleLike={() => handleLike(true)}
                 handleDislike={() => handleLike(false)}
                 likes={post.likes}
               />
+            ) : (
+              <div className="flex gap-1">
+                <div className="flex items-center">
+                  {post.likes.length}
+                  <MdFavorite />
+                </div>
+                <p>Login to like</p>
+              </div>
             )}
           </div>
           <Comments

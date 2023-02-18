@@ -159,7 +159,7 @@ const Detail = ({ postDetails }: IProps) => {
             ) : (
               <div className="flex gap-1">
                 <div className="flex items-center">
-                  {post.likes.length > 0 ? post.likes.length : 0}
+                  {post?.likes?.length > 0 ? post.likes.length : 0}
                   <MdFavorite />
                 </div>
                 <p>Login to like</p>

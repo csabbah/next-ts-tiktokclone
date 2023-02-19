@@ -15,6 +15,8 @@
 
 ## Description
 
+TikTok clone is a versatile social media app that enables users to seamlessly explore and discover content and user profiles. With Google Authorization (decoded using JWT), users can easily log in to like, comment, and upload posts. Additionally, users can browse specific content categories with ease. The app is fully optimized for both desktop and mobile devices, and utilizes Sanity to ensure reliable data persistence. Built with TypeScript, TikTok clone offers a responsive and enjoyable user experience.
+
 ## Installation
 
 1. To install application, clone the main project via the HTTP or SSH link on github.
